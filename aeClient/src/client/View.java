@@ -45,6 +45,7 @@ public class View extends JFrame {
 			this.btnEvaluateButton = new JButton("Auswerten");
 			this.btnEvaluateButton.setBounds(5, 91, 288, 35);
 			this.btnEvaluateButton.setToolTipText("Hier wertet man den eingegebenen Ausdruck aus!");
+			this.btnEvaluateButton.setEnabled(false);
 		}
 		return this.btnEvaluateButton;
 	}
@@ -56,6 +57,16 @@ public class View extends JFrame {
 			contentPane.add(btnPruefeSyntax);
 		}
 		return this.btnPruefeSyntax;
+	}
+	
+	public JTextField getTextField_Input(){
+		if(this.textField_Input==null) {
+			this.textField_Input = new JTextField();
+			this.textField_Input.setBounds(131, 2, 288, 32);
+			this.textField_Input.setColumns(10);
+			this.textField_Input.setToolTipText("Hier bitte Ausdruck eingeben!");
+		}
+		return this.textField_Input;
 	}
 
 // ============== Field Access Methods ======================================
@@ -93,15 +104,6 @@ public class View extends JFrame {
 		return this.contentPane;
 	}
 	
-	private JTextField getTextField_Input(){
-		if(this.textField_Input==null) {
-			this.textField_Input = new JTextField();
-			this.textField_Input.setBounds(131, 2, 288, 32);
-			this.textField_Input.setColumns(10);
-			this.textField_Input.setToolTipText("Hier bitte Ausdruck eingeben!");
-		}
-		return this.textField_Input;
-	}
 	
 	private JTextField getTextField_Value(){
 		if(this.textField_Value==null) {

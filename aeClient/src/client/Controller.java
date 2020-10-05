@@ -2,6 +2,8 @@ package client;
 import java.awt.event.ActionEvent;
 import java.util.Date;
 
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
@@ -26,6 +28,26 @@ public class Controller{
 		this.view.getBtnEvaluateButton().addActionListener(
 				(x) -> onEvaluationButtonPressed(x)
 		);
+		this.view.getTextField_Input().getDocument().addDocumentListener(new DocumentListener() {
+			
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				onInputChanged();
+				
+			}
+			
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				onInputChanged();
+				
+			}
+			
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				onInputChanged();
+				
+			}
+		});
 	}
 /**	
  * Follow up action after having pressed "check syntax" button 
@@ -38,8 +60,10 @@ public class Controller{
 			);
 			this.view.getTreeDisplay().expandRow(0);
 			this.view.setMessage(syntaxok);
+			this.view.getBtnEvaluateButton().setEnabled(true);
 		} catch (ParserException exception) {
 			this.errorHandling(exception);
+			
 		}
 	}
 
@@ -56,6 +80,12 @@ public class Controller{
 			this.errorHandling(exception);
 		}
 	}
+	
+	public void onInputChanged() {
+		this.initializeTreeDisplay();
+		this.view.getBtnEvaluateButton().setEnabled(false);
+	}
+	
 /**	
  * Actions on occurrence of errors
  */
@@ -63,6 +93,7 @@ public class Controller{
 		this.initializeValue();
 		this.view.setMessage(exception.getMessage());
 		this.initializeTreeDisplay();
+		this.view.getBtnEvaluateButton().setEnabled(false);
 	}
 /**	
  * Initialization of value field
