@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>414</x>
-      <y>90</y>
+      <x>306</x>
+      <y>18</y>
       <w>261</w>
       <h>126</h>
     </coordinates>
@@ -24,8 +24,8 @@
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>783</x>
-      <y>180</y>
+      <x>675</x>
+      <y>108</y>
       <w>396</w>
       <h>126</h>
     </coordinates>
@@ -44,8 +44,8 @@ return currentResult;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>666</x>
-      <y>144</y>
+      <x>558</x>
+      <y>72</y>
       <w>135</w>
       <h>81</h>
     </coordinates>
@@ -55,8 +55,8 @@ return currentResult;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>441</x>
-      <y>342</y>
+      <x>333</x>
+      <y>270</y>
       <w>180</w>
       <h>90</h>
     </coordinates>
@@ -73,8 +73,8 @@ resetState()
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>756</x>
-      <y>513</y>
+      <x>648</x>
+      <y>441</y>
       <w>90</w>
       <h>27</h>
     </coordinates>
@@ -84,8 +84,8 @@ resetState()
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>513</y>
+      <x>522</x>
+      <y>441</y>
       <w>108</w>
       <h>27</h>
     </coordinates>
@@ -95,8 +95,8 @@ resetState()
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>486</x>
-      <y>513</y>
+      <x>378</x>
+      <y>441</y>
       <w>108</w>
       <h>27</h>
     </coordinates>
@@ -106,8 +106,8 @@ resetState()
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>351</x>
-      <y>513</y>
+      <x>243</x>
+      <y>441</y>
       <w>108</w>
       <h>27</h>
     </coordinates>
@@ -117,8 +117,8 @@ resetState()
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>225</x>
-      <y>513</y>
+      <x>117</x>
+      <y>441</y>
       <w>108</w>
       <h>27</h>
     </coordinates>
@@ -128,8 +128,8 @@ resetState()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>423</y>
+      <x>162</x>
+      <y>351</y>
       <w>288</w>
       <h>108</h>
     </coordinates>
@@ -139,8 +139,8 @@ resetState()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>531</x>
-      <y>423</y>
+      <x>423</x>
+      <y>351</y>
       <w>288</w>
       <h>108</h>
     </coordinates>
@@ -150,8 +150,8 @@ resetState()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>531</x>
-      <y>423</y>
+      <x>423</x>
+      <y>351</y>
       <w>171</w>
       <h>108</h>
     </coordinates>
@@ -161,8 +161,8 @@ resetState()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>423</y>
+      <x>288</x>
+      <y>351</y>
       <w>162</w>
       <h>108</h>
     </coordinates>
@@ -172,8 +172,8 @@ resetState()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>531</x>
-      <y>423</y>
+      <x>423</x>
+      <y>351</y>
       <w>27</w>
       <h>108</h>
     </coordinates>
@@ -183,8 +183,8 @@ resetState()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>531</x>
-      <y>207</y>
+      <x>423</x>
+      <y>135</y>
       <w>99</w>
       <h>153</h>
     </coordinates>
@@ -198,8 +198,8 @@ m2=1\n scanner
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>108</x>
-      <y>315</y>
+      <x>0</x>
+      <y>243</y>
       <w>234</w>
       <h>117</h>
     </coordinates>
@@ -215,8 +215,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>315</x>
-      <y>306</y>
+      <x>207</x>
+      <y>234</y>
       <w>144</w>
       <h>117</h>
     </coordinates>
@@ -226,8 +226,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>873</x>
-      <y>513</y>
+      <x>765</x>
+      <y>441</y>
       <w>108</w>
       <h>27</h>
     </coordinates>
@@ -237,8 +237,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>531</x>
-      <y>423</y>
+      <x>423</x>
+      <y>351</y>
       <w>414</w>
       <h>108</h>
     </coordinates>
