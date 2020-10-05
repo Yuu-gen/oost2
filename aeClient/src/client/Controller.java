@@ -1,4 +1,5 @@
 package client;
+
 import java.awt.event.ActionEvent;
 import java.util.Date;
 
@@ -12,98 +13,104 @@ import facade.CalculationException;
 import facade.ParserException;
 import facade.TreeModelCreator;
 
-public class Controller{
+public class Controller {
 	private static final String syntaxok = "Syntax OK";
-	private View view;				  // The View
+	private View view; // The View
 	private ApplicationFacade model; // The Model
+
 	public Controller(View view, ApplicationFacade facade) {
-		this.view = view; 
+		this.view = view;
 		this.model = facade;
 		this.registerListeners();
 	}
+
 	private void registerListeners() {
-		this.view.getBtnCheckSyntaxButton().addActionListener(
-				(e) -> onCheckSyntaxButtonPressed()
-		);
-		this.view.getBtnEvaluateButton().addActionListener(
-				(x) -> onEvaluationButtonPressed(x)
-		);
+		this.view.getBtnCheckSyntaxButton().addActionListener((e) -> onCheckSyntaxButtonPressed());
+		this.view.getBtnEvaluateButton().addActionListener((x) -> onEvaluationButtonPressed(x));
 		this.view.getTextField_Input().getDocument().addDocumentListener(new DocumentListener() {
-			
+
 			@Override
 			public void removeUpdate(DocumentEvent e) {
 				onInputChanged();
-				
+
 			}
-			
+
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				onInputChanged();
-				
+
 			}
-			
+
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				onInputChanged();
-				
+
 			}
 		});
 	}
-/**	
- * Follow up action after having pressed "check syntax" button 
- */	
+
+	/**
+	 * Follow up action after having pressed "check syntax" button
+	 */
 	public void onCheckSyntaxButtonPressed() {
-		try { 
+		try {
 			this.initializeValue();
-			this.view.getTreeDisplay().setModel(
-					new TreeModelCreator().create(this.model.checkSyntax(this.view.getInput()))
-			);
+			this.view.getTreeDisplay()
+					.setModel(new TreeModelCreator().create(this.model.checkSyntax(this.view.getInput())));
 			this.view.getTreeDisplay().expandRow(0);
 			this.view.setMessage(syntaxok);
-			this.view.getBtnEvaluateButton().setEnabled(true);
+			this.view.getBtnEvaluateButton().setEnabled(true); // 37b
 		} catch (ParserException exception) {
 			this.errorHandling(exception);
-			
+
 		}
 	}
 
-/**	
- * Follow up action after having pressed the evaluation button 
- * @param event may be used for analysing event features 
- */
+	/**
+	 * Follow up action after having pressed the evaluation button
+	 * 
+	 * @param event may be used for analysing event features
+	 */
 	public void onEvaluationButtonPressed(ActionEvent event) {
 		try {
-			this.view.setValue(this.model.evaluate(this.view.getInput()).toString()); 
-			this.view.setMessage("Evaluation performed at " + 
-					new Date(event.getWhen()).toString()); // An example for the use of the ActionEvent
-		}catch(ParserException|CalculationException exception) {
+			this.view.setValue(this.model.evaluate(this.view.getInput()).toString());
+			this.view.setMessage("Evaluation performed at " + new Date(event.getWhen()).toString()); // An example for
+																										// the use of
+																										// the
+																										// ActionEvent
+		} catch (ParserException | CalculationException exception) {
 			this.errorHandling(exception);
 		}
 	}
-	
+
+	/**
+	 * Reinitializes TreeDisplay and disables EvaluateButton
+	 */
 	public void onInputChanged() {
 		this.initializeTreeDisplay();
 		this.view.getBtnEvaluateButton().setEnabled(false);
 	}
-	
-/**	
- * Actions on occurrence of errors
- */
+
+	/**
+	 * Actions on occurrence of errors
+	 */
 	private void errorHandling(Exception exception) {
 		this.initializeValue();
 		this.view.setMessage(exception.getMessage());
 		this.initializeTreeDisplay();
-		this.view.getBtnEvaluateButton().setEnabled(false);
+		this.view.getBtnEvaluateButton().setEnabled(false); // 37b
 	}
-/**	
- * Initialization of value field
- */
+
+	/**
+	 * Initialization of value field
+	 */
 	private void initializeValue() {
 		this.view.setValue("");
 	}
-/**	
- * Tree Initialization
- */
+
+	/**
+	 * Tree Initialization
+	 */
 	private void initializeTreeDisplay() {
 		this.view.getTreeDisplay().setModel(new DefaultTreeModel(new DefaultMutableTreeNode("VOID")));
 	}

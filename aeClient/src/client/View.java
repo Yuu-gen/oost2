@@ -45,7 +45,7 @@ public class View extends JFrame {
 			this.btnEvaluateButton = new JButton("Auswerten");
 			this.btnEvaluateButton.setBounds(5, 91, 288, 35);
 			this.btnEvaluateButton.setToolTipText("Hier wertet man den eingegebenen Ausdruck aus!");
-			this.btnEvaluateButton.setEnabled(false);
+			this.btnEvaluateButton.setEnabled(false); //37b
 		}
 		return this.btnEvaluateButton;
 	}
