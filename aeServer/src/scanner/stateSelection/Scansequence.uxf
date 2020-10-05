@@ -5,7 +5,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>182</x>
-      <y>49</y>
+      <y>7</y>
       <w>70</w>
       <h>21</h>
     </coordinates>
@@ -16,7 +16,7 @@
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>63</y>
+      <y>21</y>
       <w>21</w>
       <h>665</h>
     </coordinates>
@@ -27,7 +27,7 @@
     <id>Relation</id>
     <coordinates>
       <x>315</x>
-      <y>147</y>
+      <y>105</y>
       <w>21</w>
       <h>133</h>
     </coordinates>
@@ -38,7 +38,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>287</x>
-      <y>133</y>
+      <y>91</y>
       <w>77</w>
       <h>21</h>
     </coordinates>
@@ -49,7 +49,7 @@
     <id>Relation</id>
     <coordinates>
       <x>406</x>
-      <y>175</y>
+      <y>133</y>
       <w>21</w>
       <h>203</h>
     </coordinates>
@@ -60,7 +60,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>378</x>
-      <y>161</y>
+      <y>119</y>
       <w>70</w>
       <h>21</h>
     </coordinates>
@@ -71,7 +71,7 @@
     <id>Relation</id>
     <coordinates>
       <x>525</x>
-      <y>322</y>
+      <y>280</y>
       <w>21</w>
       <h>252</h>
     </coordinates>
@@ -82,7 +82,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>497</x>
-      <y>308</y>
+      <y>266</y>
       <w>70</w>
       <h>21</h>
     </coordinates>
@@ -93,7 +93,7 @@
     <id>Relation</id>
     <coordinates>
       <x>665</x>
-      <y>574</y>
+      <y>532</y>
       <w>21</w>
       <h>126</h>
     </coordinates>
@@ -104,7 +104,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>644</x>
-      <y>560</y>
+      <y>518</y>
       <w>70</w>
       <h>21</h>
     </coordinates>
@@ -115,7 +115,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>322</x>
-      <y>42</y>
+      <y>0</y>
       <w>105</w>
       <h>21</h>
     </coordinates>
@@ -128,7 +128,7 @@ halign=center
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>70</y>
+      <y>28</y>
       <w>231</w>
       <h>35</h>
     </coordinates>
@@ -141,7 +141,7 @@ toTokenSequence("(34+5)* 9")
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>175</y>
+      <y>133</y>
       <w>126</w>
       <h>28</h>
     </coordinates>
@@ -153,7 +153,7 @@ scan('(',Scanner)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>294</y>
+      <y>252</y>
       <w>217</w>
       <h>28</h>
     </coordinates>
@@ -165,7 +165,7 @@ skip()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>210</y>
+      <y>168</y>
       <w>126</w>
       <h>28</h>
     </coordinates>
@@ -177,7 +177,7 @@ setState(2)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>315</x>
-      <y>189</y>
+      <y>147</y>
       <w>112</w>
       <h>28</h>
     </coordinates>
@@ -189,7 +189,7 @@ new</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>238</y>
+      <y>196</y>
       <w>217</w>
       <h>28</h>
     </coordinates>
@@ -201,7 +201,7 @@ scan('(',Scanner)</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>315</x>
-      <y>266</y>
+      <y>224</y>
       <w>14</w>
       <h>14</h>
     </coordinates>
@@ -212,7 +212,7 @@ scan('(',Scanner)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>280</y>
+      <y>238</y>
       <w>217</w>
       <h>28</h>
     </coordinates>
@@ -224,7 +224,7 @@ addToken(new OpenBracketToken())</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>427</x>
-      <y>280</y>
+      <y>238</y>
       <w>84</w>
       <h>21</h>
     </coordinates>
@@ -235,7 +235,7 @@ addToken(new OpenBracketToken())</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>455</x>
-      <y>294</y>
+      <y>252</y>
       <w>21</w>
       <h>133</h>
     </coordinates>
@@ -246,7 +246,7 @@ addToken(new OpenBracketToken())</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>406</x>
-      <y>315</y>
+      <y>273</y>
       <w>70</w>
       <h>28</h>
     </coordinates>
@@ -258,7 +258,7 @@ new</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>343</y>
+      <y>301</y>
       <w>217</w>
       <h>28</h>
     </coordinates>
@@ -270,7 +270,7 @@ setState(3)</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>406</x>
-      <y>357</y>
+      <y>315</y>
       <w>14</w>
       <h>14</h>
     </coordinates>
@@ -281,7 +281,7 @@ setState(3)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>364</y>
+      <y>322</y>
       <w>266</w>
       <h>28</h>
     </coordinates>
@@ -293,7 +293,7 @@ scan('3',Scanner)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>455</x>
-      <y>385</y>
+      <y>343</y>
       <w>91</w>
       <h>28</h>
     </coordinates>
@@ -305,7 +305,7 @@ new</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>392</y>
+      <y>350</y>
       <w>266</w>
       <h>28</h>
     </coordinates>
@@ -317,7 +317,7 @@ setState(4)</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>455</x>
-      <y>406</y>
+      <y>364</y>
       <w>14</w>
       <h>14</h>
     </coordinates>
@@ -328,7 +328,7 @@ setState(4)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>427</y>
+      <y>385</y>
       <w>336</w>
       <h>28</h>
     </coordinates>
@@ -340,7 +340,7 @@ scan('3',Scanner)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>84</y>
+      <y>42</y>
       <w>196</w>
       <h>49</h>
     </coordinates>
@@ -352,12 +352,48 @@ currentExpression := "(34+5)*9"</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>525</x>
-      <y>441</y>
+      <y>399</y>
       <w>126</w>
       <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 :cD := cd*10 + 3 </panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>413</y>
+      <w>336</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+skip()</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>427</y>
+      <w>336</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+scan('4',Scanner)</panel_attributes>
+    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>525</x>
+      <y>441</y>
+      <w>126</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+:cD := cd*10 + 4 </panel_attributes>
     <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -381,42 +417,6 @@ skip()</panel_attributes>
       <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-scan('4',Scanner)</panel_attributes>
-    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>525</x>
-      <y>483</y>
-      <w>126</w>
-      <h>35</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-:cD := cd*10 + 4 </panel_attributes>
-    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>210</x>
-      <y>497</y>
-      <w>336</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-skip()</panel_attributes>
-    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>210</x>
-      <y>511</y>
-      <w>336</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
 scan('+',Scanner)</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -424,7 +424,7 @@ scan('+',Scanner)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>567</x>
-      <y>511</y>
+      <y>469</y>
       <w>77</w>
       <h>21</h>
     </coordinates>
@@ -435,7 +435,7 @@ scan('+',Scanner)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>525</x>
-      <y>532</y>
+      <y>490</y>
       <w>91</w>
       <h>28</h>
     </coordinates>
@@ -447,7 +447,7 @@ new</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>595</x>
-      <y>525</y>
+      <y>483</y>
       <w>21</w>
       <h>105</h>
     </coordinates>
@@ -458,7 +458,7 @@ new</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>525</y>
+      <y>483</y>
       <w>336</w>
       <h>28</h>
     </coordinates>
@@ -470,7 +470,7 @@ addToken(new NumberToken(cD))</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>539</y>
+      <y>497</y>
       <w>336</w>
       <h>28</h>
     </coordinates>
@@ -482,7 +482,7 @@ setState(5)</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>525</x>
-      <y>553</y>
+      <y>511</y>
       <w>14</w>
       <h>14</h>
     </coordinates>
@@ -493,7 +493,7 @@ setState(5)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>560</y>
+      <y>518</y>
       <w>406</w>
       <h>28</h>
     </coordinates>
@@ -505,7 +505,7 @@ scan('+',Scanner)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>595</x>
-      <y>581</y>
+      <y>539</y>
       <w>91</w>
       <h>28</h>
     </coordinates>
@@ -517,7 +517,7 @@ new</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>623</y>
+      <y>581</y>
       <w>476</w>
       <h>28</h>
     </coordinates>
@@ -529,7 +529,7 @@ scan('+',Scanner)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>588</y>
+      <y>546</y>
       <w>406</w>
       <h>28</h>
     </coordinates>
@@ -541,7 +541,7 @@ setState(6)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>637</y>
+      <y>595</y>
       <w>476</w>
       <h>28</h>
     </coordinates>
@@ -553,7 +553,7 @@ addToken(new AdditionToken())</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>595</x>
-      <y>609</y>
+      <y>567</y>
       <w>14</w>
       <h>14</h>
     </coordinates>
@@ -564,7 +564,7 @@ addToken(new AdditionToken())</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>700</x>
-      <y>595</y>
+      <y>553</y>
       <w>84</w>
       <h>21</h>
     </coordinates>
@@ -575,7 +575,7 @@ addToken(new AdditionToken())</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>651</y>
+      <y>609</y>
       <w>476</w>
       <h>28</h>
     </coordinates>
@@ -587,7 +587,7 @@ skip()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>665</x>
-      <y>658</y>
+      <y>616</y>
       <w>91</w>
       <h>28</h>
     </coordinates>
@@ -599,7 +599,7 @@ new</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>735</x>
-      <y>609</y>
+      <y>567</y>
       <w>21</w>
       <h>119</h>
     </coordinates>
@@ -610,7 +610,7 @@ new</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>665</y>
+      <y>623</y>
       <w>476</w>
       <h>28</h>
     </coordinates>
@@ -622,7 +622,7 @@ setState(7)</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>665</x>
-      <y>679</y>
+      <y>637</y>
       <w>14</w>
       <h>14</h>
     </coordinates>
@@ -633,7 +633,7 @@ setState(7)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>686</y>
+      <y>644</y>
       <w>546</w>
       <h>28</h>
     </coordinates>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>414</x>
+      <y>90</y>
+      <w>261</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>Scanner
+--
+- currentExpression: String
+- currentResult: List&lt;Token&gt;
+--
++toTokenSequence(expr: String): List&lt;Token&gt; 
+ setState(state State)
+ skip()
+ addToken()
+ reset()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>783</x>
+      <y>180</y>
+      <w>396</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>Zunächst wird currentExpr der Wert von expr zugewiesen,
+dann wird dieser String zeichenweise von links durchgegangen,
+jeweils in Token umgewandelt und dem currentResult hinzugefügt.
+bg=yellow
+--
+currentExpression = expr
+while(currentExps.length()&gt;0){
+	state.scan(currentExps.charAt(0),this)
+}
+return currentResult;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>666</x>
+      <y>144</y>
+      <w>135</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>342</y>
+      <w>180</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract class&gt;&gt;
+/ScannerState/
+--
+--
+scan(c:Character)
+resetState()
+ onTermination()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>756</x>
+      <y>513</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>SelectionState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>513</y>
+      <w>108</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>WhitespaceState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>486</x>
+      <y>513</y>
+      <w>108</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>BracketState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>351</x>
+      <y>513</y>
+      <w>108</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>DigitState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>225</x>
+      <y>513</y>
+      <w>108</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>OperatorState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>423</y>
+      <w>288</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>300.0;10.0;300.0;70.0;10.0;70.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>531</x>
+      <y>423</y>
+      <w>288</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;300.0;70.0;300.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>531</x>
+      <y>423</y>
+      <w>171</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;170.0;70.0;170.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>396</x>
+      <y>423</y>
+      <w>162</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>160.0;10.0;160.0;70.0;10.0;70.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>531</x>
+      <y>423</y>
+      <w>27</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>531</x>
+      <y>207</y>
+      <w>99</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>
+lt=-
+m1=1 \n currentState
+m2=1\n scanner
+</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>108</x>
+      <y>315</y>
+      <w>234</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>Je nach Zeichen c
+-Token erzeugen und in
+currentResult schreiben
+(über Referenz s)
+-Zustand wechseln (im Scanner s)
+-Entfernen von c aus currentExpression 
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>315</x>
+      <y>306</y>
+      <w>144</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>873</x>
+      <y>513</y>
+      <w>108</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>ErrorState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>531</x>
+      <y>423</y>
+      <w>414</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;440.0;70.0;440.0;100.0</additional_attributes>
+  </element>
+</diagram>
