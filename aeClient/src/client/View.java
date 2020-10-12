@@ -58,8 +58,8 @@ public class View extends JFrame {
 		}
 		return this.btnPruefeSyntax;
 	}
-	
-	public JTextField getTextField_Input(){
+	//37b made public bzw protected
+	JTextField getTextField_Input(){
 		if(this.textField_Input==null) {
 			this.textField_Input = new JTextField();
 			this.textField_Input.setBounds(131, 2, 288, 32);

@@ -27,6 +27,7 @@ public class Controller {
 	private void registerListeners() {
 		this.view.getBtnCheckSyntaxButton().addActionListener((e) -> onCheckSyntaxButtonPressed());
 		this.view.getBtnEvaluateButton().addActionListener((x) -> onEvaluationButtonPressed(x));
+		//37b getTextFieldInput muss public oder protected gemacht werden
 		this.view.getTextField_Input().getDocument().addDocumentListener(new DocumentListener() {
 
 			@Override
