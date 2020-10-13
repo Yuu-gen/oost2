@@ -17,10 +17,12 @@ public class Controller {
 	private static final String syntaxok = "Syntax OK";
 	private View view; // The View
 	private ApplicationFacade model; // The Model
+	private ControllerState state; // THE STATE
 
 	public Controller(View view, ApplicationFacade facade) {
 		this.view = view;
 		this.model = facade;
+		this.changeState(new UnverifiedState(this));
 		this.registerListeners();
 	}
 
@@ -60,7 +62,7 @@ public class Controller {
 					.setModel(new TreeModelCreator().create(this.model.checkSyntax(this.view.getInput())));
 			this.view.getTreeDisplay().expandRow(0);
 			this.view.setMessage(syntaxok);
-			this.view.getBtnEvaluateButton().setEnabled(true); // 37b
+			this.changeState(new EvaluableState(this));
 		} catch (ParserException exception) {
 			this.errorHandling(exception);
 
@@ -76,7 +78,7 @@ public class Controller {
 		try {
 			this.view.setValue(this.model.evaluate(this.view.getInput()).toString());
 			this.view.setMessage("Evaluation performed at " + new Date(event.getWhen()).toString()); // An example for
-																										// the use of
+				this.changeState(new EvaluatedState(this));																						// the use of
 																										// the
 																										// ActionEvent
 		} catch (ParserException | CalculationException exception) {
@@ -89,7 +91,7 @@ public class Controller {
 	 */
 	public void onInputChanged() {
 		this.initializeTreeDisplay();
-		this.view.getBtnEvaluateButton().setEnabled(false);
+		this.changeState(new UnverifiedState(this));
 	}
 
 	/**
@@ -99,7 +101,7 @@ public class Controller {
 		this.initializeValue();
 		this.view.setMessage(exception.getMessage());
 		this.initializeTreeDisplay();
-		this.view.getBtnEvaluateButton().setEnabled(false); // 37b
+		this.changeState(new ErrorState(this));
 	}
 
 	/**
@@ -115,4 +117,15 @@ public class Controller {
 	private void initializeTreeDisplay() {
 		this.view.getTreeDisplay().setModel(new DefaultTreeModel(new DefaultMutableTreeNode("VOID")));
 	}
+	
+	protected void changeState(ControllerState newState) {
+		this.state = newState;
+		this.state.changeBtnState();
+	}
+	
+	/**View Getter**/
+	protected View getView() {
+		return this.view;
+	}
+
 }
