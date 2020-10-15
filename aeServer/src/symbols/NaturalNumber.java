@@ -36,7 +36,7 @@ public class NaturalNumber implements Token, Factor {
 		sv.handle(this);
 	}
 
-	public void accept(ExpressionVisitor ev) {
-		ev.handle(this);
-	}
+	public <T> T accept(ExpressionVisitor <T> ev) {
+		return ev.handle(this);
+	}	
 }

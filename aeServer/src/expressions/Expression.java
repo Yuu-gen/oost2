@@ -13,5 +13,5 @@ public interface Expression {
 /**
  * Receives a request from any visitor
  */
-	public void accept(ExpressionVisitor ev);
+	public <T> T accept(ExpressionVisitor <T> ev);
 }

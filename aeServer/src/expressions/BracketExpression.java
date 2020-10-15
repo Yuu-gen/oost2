@@ -18,9 +18,9 @@ public class BracketExpression implements Factor {
 	public Integer evaluate() throws CalculationException{
 		return this.expression.evaluate();
 	}
-	public void accept(ExpressionVisitor ev) {
-		ev.handle(this);
-	}
+	public <T> T accept(ExpressionVisitor <T> ev) {
+		return ev.handle(this);
+	}	
 	public BracketClose getBracketClose() {
 		return bracketClose;
 	}

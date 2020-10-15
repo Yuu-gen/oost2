@@ -4,9 +4,9 @@ import symbols.NaturalNumber;
 /**
  * Part of visitor pattern in order to distinguish different types of Expressions
  */
-public interface ExpressionVisitor {
-	public void handle(Sum s);
-	public void handle(Product p);
-	public void handle(BracketExpression be);
-	public void handle(NaturalNumber c);
+public interface ExpressionVisitor<T> {
+	public T handle(Sum s);
+	public T handle(Product p);
+	public T handle(BracketExpression be);
+	public T handle(NaturalNumber c);
 }

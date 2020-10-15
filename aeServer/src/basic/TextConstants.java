@@ -31,7 +31,7 @@ public class TextConstants {
 	public static final String ATPOSITION = "after having parsed the following number of symbols: ";
 	public static final String SYNTAXOK = "Syntax OK";
 	public static final String OK = "Evaluation performed";
-	public static final String TREEROOT = "Sytax Tree";
+	public static final String TREEROOT = "Syntax Tree";
 	public static final String EMPTYTREE = "-- VOID --";
 	public static final String NAME = "Name";
 	public static final String NEW = "New";

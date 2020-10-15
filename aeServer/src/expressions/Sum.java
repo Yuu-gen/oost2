@@ -27,7 +27,7 @@ public class Sum implements BinaryTerm, Expression{
 	public Integer evaluate() throws CalculationException{
 		return this.op.calculate(this.arg1.evaluate(), this.arg2.evaluate());
 	}
-	public void accept(ExpressionVisitor ev) {
-		ev.handle(this);
+	public <T> T accept(ExpressionVisitor <T> ev) {
+		return ev.handle(this);
 	}	
 }
