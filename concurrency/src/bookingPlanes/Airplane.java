@@ -16,20 +16,18 @@ public class Airplane{
 	 * @param n
 	 * @throws Exception
 	 */
-	public void book(Integer n) throws Exception {
-		Integer temp = this.occupied;
+	public synchronized void book(Integer n) throws Exception {
 		
 		if(new Random().nextInt()%n == 0)
 			try {
 				Thread.sleep(1);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		if(this.occupied < this.capacity) 
-			this.occupied = temp + 1;
-		//else
-			//throw new Exception("Airplane is full");
+			this.occupied++;
+		else
+			throw new Exception("Airplane is full");
 	}
 	
 	public Integer getCapacity() {
