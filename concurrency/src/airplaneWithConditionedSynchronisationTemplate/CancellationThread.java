@@ -1,6 +1,6 @@
 package airplaneWithConditionedSynchronisationTemplate;
 import java.util.List;
-
+//vielleicht nicht vielmehr extends ActionThread?
 public class CancellationThread extends BookingThread {
 	public CancellationThread(List<Airplane> planes, String name){
 		super(planes, name);
