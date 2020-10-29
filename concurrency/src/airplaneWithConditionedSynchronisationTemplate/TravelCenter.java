@@ -18,8 +18,9 @@ import javax.swing.JLabel;
  */
 public class TravelCenter extends JFrame implements Observer {
 	private static final long serialVersionUID = 1L;
-	private static final Integer maxNumberOfPlanes = 5;
-	private static final Integer maxNumberOfBookingAndCancelThreads = 8;
+	private static final Integer maxNumberOfPlanes = 4;
+	private static final Integer maxNumberOfBookingThreads = 4;
+	private static final Integer maxNumberOfCancelThreads =  4;
 	private JPanel jContentPane = null;
 	private JTextArea jTextAreaAirplanes = null;
 	private JTextArea jTextAreaAgencies = null;
@@ -52,10 +53,13 @@ public class TravelCenter extends JFrame implements Observer {
 	}
 
 	private void createActionThreads() {
-		for (int i = 0; i < maxNumberOfBookingAndCancelThreads; i++) {
+		for (int i = 0; i < maxNumberOfBookingThreads; i++) {
 			this.runnables.add(new BookingThread(this.planes, "Booking " + i));
+		}
+		for (int i = 0; i < maxNumberOfCancelThreads; i++) {
 			this.runnables.add(new CancellationThread(this.planes, "Cancel " + i));
 		}
+		
 	}
 
 	/**
