@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 public class TravelCenter extends JFrame implements Observer {
 	private static final long serialVersionUID = 1L;
 	private static final Integer maxNumberOfPlanes = 5;
-	private static final Integer maxNumberOfBookingAndCancelThreads = 4;
+	private static final Integer maxNumberOfBookingAndCancelThreads = 8;
 	private JPanel jContentPane = null;
 	private JTextArea jTextAreaAirplanes = null;
 	private JTextArea jTextAreaAgencies = null;
@@ -52,18 +52,10 @@ public class TravelCenter extends JFrame implements Observer {
 	}
 
 	private void createActionThreads() {
-//		for (int i = 0; i < maxNumberOfBookingAndCancelThreads; i++) {
-//			this.runnables.add(new BookingThread(this.planes, "Booking " + i));
-//			this.runnables.add(new CancellationThread(this.planes, "Cancel " + i));
-//		}
-		this.runnables.add(new BookingThread(this.planes, "Booking 1"));
-		this.runnables.add(new CancellationThread(this.planes, "Cancel 1"));
-		this.runnables.add(new BookingThread(this.planes, "Booking 2"));
-		this.runnables.add(new CancellationThread(this.planes, "Cancel 2"));
-		this.runnables.add(new BookingThread(this.planes, "Booking 3"));
-		this.runnables.add(new CancellationThread(this.planes, "Cancel 3"));
-		this.runnables.add(new BookingThread(this.planes, "Booking 4"));
-		this.runnables.add(new CancellationThread(this.planes, "Cancel 4"));
+		for (int i = 0; i < maxNumberOfBookingAndCancelThreads; i++) {
+			this.runnables.add(new BookingThread(this.planes, "Booking " + i));
+			this.runnables.add(new CancellationThread(this.planes, "Cancel " + i));
+		}
 	}
 
 	/**
