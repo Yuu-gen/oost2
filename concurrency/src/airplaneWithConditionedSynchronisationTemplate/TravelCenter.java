@@ -48,7 +48,7 @@ public class TravelCenter extends JFrame implements Observer {
 
 	private void createPlanes() {
 		for (int i = 0; i < maxNumberOfPlanes; i++) {
-			this.planes.add(new Airplane(10, "USS Enterprise NCC " + i));
+			this.planes.add(new Airplane(10, "USS Enterprise NCC 1701-" + (char)('a'+ i)));
 		}
 	}
 

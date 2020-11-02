@@ -6,7 +6,7 @@ package airplaneWithConditionedSynchronisationTemplate;
 public class Airplane extends Observable {
 	private int capacity;
 	private int occupied;
-	private String name;
+	private final String name;
 
 	public Airplane(int capacity, String name) {
 		this.capacity = capacity;
@@ -33,7 +33,7 @@ public class Airplane extends Observable {
 	 */
 	public synchronized void cancel() throws InterruptedException {
 // TODO 5. Muss die vorige Zeile ergänzt werden? ja!		
-		while(this.occupied == 0) {
+		while(this.occupied <= 0) {
 			this.wait();
 		}
 		this.occupied--;

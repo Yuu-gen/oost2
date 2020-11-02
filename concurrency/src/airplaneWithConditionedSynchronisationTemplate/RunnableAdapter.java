@@ -4,8 +4,6 @@ import java.lang.Thread.State;
 /**
  * encapsulates standard Thread behavior to reduce 
  * redundant code.
- * @author Y
- *
  */
 public abstract class RunnableAdapter implements Runnable {
 	private Thread whereIRunIn;
