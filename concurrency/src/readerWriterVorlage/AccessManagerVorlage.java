@@ -11,7 +11,7 @@ public class AccessManagerVorlage {
 	private int waitingReaders = 0; // Anzahl Wartende Leser
 	private int waitingWriters = 0; // Anzahl Wartende Schreiber
 	private int activeWriters = 0; // Anzahl Aktive Schreiber
-
+	private boolean readersHavePriority;
 	private Resource resource;
 
 	public AccessManagerVorlage() {
@@ -19,12 +19,11 @@ public class AccessManagerVorlage {
 		this.writerQueue = new Semaphor(0);
 		this.mutex = new Semaphor(1);
 		this.resource = new Resource();
+		this.readersHavePriority = false;
 	}
 
 	public Resource startWriting() throws InterruptedException {
-		
-		
-		while (activeWriters > 0 || activeReaders > 0 || waitingReaders > 0) {
+		while (activeWriters > 0 || activeReaders > 0 ) { //|| waitingReaders > 0
 			this.mutex.down();
 			this.waitingWriters++;
 			this.mutex.up();
@@ -37,14 +36,14 @@ public class AccessManagerVorlage {
 		this.activeWriters++;
 		this.checkResourceAccess();
 		this.mutex.up();
-		
+
 		return this.resource;
 	}
 
 	public Resource startReading() throws InterruptedException {
-		
+
 		this.checkResourceAccess();
-		while (waitingWriters > 0 ||activeWriters > 0) { //
+		while (waitingWriters > 0 || activeWriters > 0) {
 			this.mutex.down();
 			this.waitingReaders++;
 			this.mutex.up();
@@ -53,7 +52,7 @@ public class AccessManagerVorlage {
 			this.waitingReaders--;
 			this.mutex.up();
 		}
-		
+
 		this.mutex.down();
 		this.activeReaders++;
 		this.checkResourceAccess();
@@ -66,15 +65,11 @@ public class AccessManagerVorlage {
 		this.activeWriters--;
 		this.printNumbers();
 		this.checkResourceAccess();
-		
+
 		this.mutex.up();
-		
-		if(checkForWaitingReaders()) {
-			this.readerQueue.up();
-		}else {
-			this.writerQueue.up();
-		}
-		
+
+		decideNextbyPriority(readersHavePriority);
+
 	}
 
 	public void stopReading() throws InterruptedException {
@@ -83,29 +78,52 @@ public class AccessManagerVorlage {
 		this.printNumbers();
 		this.checkResourceAccess();
 		this.mutex.up();
-		if(checkForWaitingReaders()) {
-			this.readerQueue.up();
-		}else {
-			this.writerQueue.up();
-		}
-		
+		decideNextbyPriority(readersHavePriority);
+
 	}
+
+	public void decideNextbyPriority(boolean ReadersPriorized) throws InterruptedException {
+		if (ReadersPriorized) {
+			if (checkForWaitingReaders()) {
+				this.readerQueue.up();
+			} else {
+				this.writerQueue.up();
+			}
+		} else {
+			if (checkForWaitingWriters()) {
+				this.writerQueue.up();
+			} else {
+				this.readerQueue.up();
+			}
+		}
+	}
+
 	/**
 	 * True, if there are waiting readers in queue
+	 * 
 	 * @return
 	 * @throws InterruptedException
 	 */
 	private boolean checkForWaitingReaders() throws InterruptedException {
 		this.mutex.down();
-		if(this.waitingReaders>0) {
+		if (this.waitingReaders > 0) {
 			this.mutex.up();
 			return true;
 		}
 		this.mutex.up();
 		return false;
 	}
-	
-	
+
+	private boolean checkForWaitingWriters() throws InterruptedException {
+		this.mutex.down();
+		if (this.waitingWriters > 0) {
+			this.mutex.up();
+			return true;
+		}
+		this.mutex.up();
+		return false;
+	}
+
 // ===============================================================
 // ============== Protokollierer =================================
 // ===============================================================	
