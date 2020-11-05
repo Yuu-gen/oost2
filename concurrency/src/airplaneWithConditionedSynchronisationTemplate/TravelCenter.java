@@ -19,8 +19,8 @@ import javax.swing.JLabel;
 public class TravelCenter extends JFrame implements Observer {
 	private static final long serialVersionUID = 1L;
 	private static final Integer maxNumberOfPlanes = 4;
-	private static final Integer maxNumberOfBookingThreads = 4;
-	private static final Integer maxNumberOfCancelThreads =  4;
+	private static final Integer maxNumberOfBookingThreads = 2;
+	private static final Integer maxNumberOfCancelThreads =  3;
 	private JPanel jContentPane = null;
 	private JTextArea jTextAreaAirplanes = null;
 	private JTextArea jTextAreaAgencies = null;
