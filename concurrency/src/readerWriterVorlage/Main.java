@@ -8,8 +8,8 @@ import java.util.List;
 
 
 public class Main {
-	public static final int noOfReaders = 3; // Starvation ...?
-	public static final int noOfWriters = 3;
+	public static final int noOfReaders = 10; // Starvation ...?
+	public static final int noOfWriters = 10;
 	public static void main(String[] args) {
 		AccessManagerVorlage manager = new AccessManagerVorlage();
 		List<MyRun> writers, readers;
@@ -22,7 +22,7 @@ public class Main {
 		for(MyRun current : writers) current.start();
 
 // 	Warten
-		try{Thread.sleep(2000);}catch(InterruptedException ie){} 
+		try{Thread.sleep(20000);}catch(InterruptedException ie){} 
 		// TODO: Besser aktiv beenden über Benutzereingabe
 //	Beenden
 //        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

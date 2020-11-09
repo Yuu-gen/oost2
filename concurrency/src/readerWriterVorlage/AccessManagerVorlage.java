@@ -27,6 +27,7 @@ public class AccessManagerVorlage {
 			this.mutex.down();
 			this.waitingWriters++;
 			this.mutex.up();
+			this.checkResourceAccess();
 			this.writerQueue.down(); // wirkliches warten
 			this.mutex.down();
 			this.waitingWriters--;
@@ -44,13 +45,16 @@ public class AccessManagerVorlage {
 
 		this.checkResourceAccess();
 		while (waitingWriters > 0 || activeWriters > 0) {
+			
 			this.mutex.down();
 			this.waitingReaders++;
 			this.mutex.up();
+			this.checkResourceAccess();
 			this.readerQueue.down();
 			this.mutex.down();
 			this.waitingReaders--;
 			this.mutex.up();
+			
 		}
 
 		this.mutex.down();
@@ -65,11 +69,8 @@ public class AccessManagerVorlage {
 		this.activeWriters--;
 		this.printNumbers();
 		this.checkResourceAccess();
-
-		this.mutex.up();
-
 		decideNextbyPriority(readersHavePriority);
-
+		this.mutex.up();
 	}
 
 	public void stopReading() throws InterruptedException {
@@ -77,9 +78,8 @@ public class AccessManagerVorlage {
 		this.activeReaders--;
 		this.printNumbers();
 		this.checkResourceAccess();
-		this.mutex.up();
 		decideNextbyPriority(readersHavePriority);
-
+		this.mutex.up();
 	}
 
 	public void decideNextbyPriority(boolean readersPriorized) throws InterruptedException {
@@ -105,22 +105,22 @@ public class AccessManagerVorlage {
 	 * @throws InterruptedException
 	 */
 	private boolean checkForWaitingReaders() throws InterruptedException {
-		this.mutex.down();
+	
 		if (this.waitingReaders > 0) {
-			this.mutex.up();
+			
 			return true;
 		}
-		this.mutex.up();
+		
 		return false;
 	}
 
 	private boolean checkForWaitingWriters() throws InterruptedException {
-		this.mutex.down();
+		
 		if (this.waitingWriters > 0) {
-			this.mutex.up();
+			
 			return true;
 		}
-		this.mutex.up();
+		
 		return false;
 	}
 
@@ -135,7 +135,7 @@ public class AccessManagerVorlage {
 				|| this.waitingReaders + this.activeReaders > Main.noOfReaders
 				|| this.waitingWriters + this.activeWriters > Main.noOfWriters
 				|| this.waitingReaders + this.activeReaders < 0 || this.waitingWriters + this.activeWriters < 0)) {
-			System.out.println("Fataler Fehler, ");
+			System.err.println("Fataler Fehler, ");
 			this.printNumbers();
 		}
 	}
