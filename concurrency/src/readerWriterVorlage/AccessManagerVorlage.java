@@ -82,8 +82,8 @@ public class AccessManagerVorlage {
 
 	}
 
-	public void decideNextbyPriority(boolean ReadersPriorized) throws InterruptedException {
-		if (ReadersPriorized) {
+	public void decideNextbyPriority(boolean readersPriorized) throws InterruptedException {
+		if (readersPriorized) {
 			if (checkForWaitingReaders()) {
 				this.readerQueue.up();
 			} else {
