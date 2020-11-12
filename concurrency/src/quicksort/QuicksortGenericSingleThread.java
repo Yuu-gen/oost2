@@ -7,11 +7,11 @@ import java.util.stream.Stream;
 
 import baseClasses.Future;
 
-public class QuicksortGeneric<T extends Comparable<? super T>> {
+public class QuicksortGenericSingleThread<T extends Comparable<? super T>> {
 
 	private ArrayList<T> list;
 
-	public QuicksortGeneric(ArrayList<T> list) {
+	public QuicksortGenericSingleThread(ArrayList<T> list) {
 		super();
 		this.list = list;
 	}
@@ -27,6 +27,7 @@ public class QuicksortGeneric<T extends Comparable<? super T>> {
 
 	/**
 	 * Sorts an ArrayList using mutilated quicksort!
+	 * 
 	 * @param list
 	 * @return
 	 */
@@ -48,29 +49,14 @@ public class QuicksortGeneric<T extends Comparable<? super T>> {
 					greater.add(element);
 			}
 			ArrayList<T> result = new ArrayList<>();
-			Future<ArrayList<T>> lowerPart = new Future<ArrayList<T>>();
-			Future<ArrayList<T>> greaterPart = new Future<ArrayList<T>>();
-			new QuickSortThread<>(lowerPart, lower).start();
-			new QuickSortThread<>(greaterPart, greater).start();
-			
-			try {
-				result.addAll(lowerPart.receiveContents());
-				result.addAll(equal);
-				result.addAll(greaterPart.receiveContents());
 
-			} catch (InterruptedException e) {
-				System.err.println("AAAAAAAAAARGH! interrupted while sorting.");
-			}
+			result.addAll(sort(lower));
+			result.addAll(equal);
+			result.addAll(sort(greater));
 			return result;
 
-//			try {
-//				return (ArrayList<T>) Stream.of(lowerPart.receiveContents(), equal, greaterPart.receiveContents()).flatMap(Collection::stream)
-//						.collect(Collectors.toList());
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			return result;
+//			return (ArrayList<T>) Stream.of(sort(lower), equal, sort(greater)).flatMap(Collection::stream)
+//					.collect(Collectors.toList());
 		}
 	}
 

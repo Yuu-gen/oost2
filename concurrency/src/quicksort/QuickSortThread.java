@@ -5,19 +5,20 @@ import java.util.ArrayList;
 import baseClasses.Future;
 import baseClasses.RunnableAdapter;
 
-public class QuickSortThread extends RunnableAdapter {
-	private Future<ArrayList<Integer>> futureResult;
-	private Quicksort sorter;
+public class QuickSortThread<T extends Comparable<? super T>> extends RunnableAdapter {
+	private Future<ArrayList<T>> futureResult;
+	private QuicksortGeneric<T> sorter;
 	
-	public QuickSortThread(Future<ArrayList<Integer>> futureResult, ArrayList<Integer> list) {
+	public QuickSortThread(Future<ArrayList<T>> futureResult, ArrayList<T> list) {
 		super();
-		
+		this.futureResult = futureResult;
+		this.sorter = new QuicksortGeneric<T>(list);
 	}
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-
+		//System.out.println("Thread started sorting");
+		this.futureResult.setContents(this.sorter.sort());	
 	}
 
 }
