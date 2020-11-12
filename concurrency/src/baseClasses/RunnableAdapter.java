@@ -18,7 +18,7 @@ public abstract class RunnableAdapter implements Runnable {
 		this.whereIRunIn.start();
 	}
 /**	
- * A random delay between 0 and millis milliseconds
+ * A random delay between 0 and milliseconds
  */
 	public void delay(int millis){
 		try{Thread.sleep((long)(Math.random()*millis));}catch(InterruptedException e){this.interrupt();}
