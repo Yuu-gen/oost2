@@ -15,7 +15,11 @@ class FactorParser{
 	}
 	public Factor toExpression(Pipeline<Token> symbolPipe) throws ParserException{
 		FactorAlternativeDecider fad = new FactorAlternativeDecider(this, symbolPipe);
-		symbolPipe.remove().accept(fad);
+		try {
+			symbolPipe.peek().accept(fad);
+		}catch (InterruptedException e) {
+			System.out.println("AAAAAHHHHHH");
+		}
 		return fad.getResult();
 	}	
 }

@@ -2,6 +2,7 @@ package scanner;
 import java.util.ArrayList;
 import java.util.List;
 
+import symbols.EndSymbol;
 import symbols.Token;
 import basic.Pipeline;
 import basic.PipelineImplementierung;
@@ -27,6 +28,11 @@ public class Scanner {
 		while(this.currentExpression.length()>0) 
 			this.state.scan(this.currentExpression.charAt(0));
 		this.state.onTermination();
+		try {
+			this.currentResult.push(new EndSymbol());
+		} catch (InterruptedException e) {
+			System.out.println("Interrupted while adding endsymbol");
+		}
 		//return this.currentResult; 
 	}
 /**	

@@ -18,9 +18,9 @@ class ExpressionParser implements ExpressionParserInterface{ // Paketsichtbarkei
 		Summand s = new SummandParser().toExpression(tokenPipe);
 		ExpressionAlternativeDecider ead = new ExpressionAlternativeDecider(this, tokenPipe, s);
 		try {
-			tokenPipe.remove().accept(ead);
+			tokenPipe.peek().accept(ead);
 		} catch (InterruptedException e) {
-			System.out.println("Whatever.");
+			System.out.println("Interrupted while waiting on Expressions.");
 		}
 		return ead.getResult();
 	}

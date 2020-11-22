@@ -66,6 +66,8 @@ public class Controller {
 		} catch (ParserException exception) {
 			this.errorHandling(exception);
 
+		} catch (InterruptedException e) {
+			this.errorHandling(e);
 		}
 	}
 
@@ -83,6 +85,8 @@ public class Controller {
 																										// ActionEvent
 		} catch (ParserException | CalculationException exception) {
 			this.errorHandling(exception);
+		} catch (InterruptedException e) {
+			this.errorHandling(e);
 		}
 	}
 

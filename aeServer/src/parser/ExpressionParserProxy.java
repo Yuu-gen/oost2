@@ -13,12 +13,12 @@ import symbols.Token;
  */
 public class ExpressionParserProxy implements ExpressionParserInterface{
 	public Expression toExpression(Pipeline<Token> tokenPipe) throws ParserException{
-		try {
-			tokenPipe.push(new EndSymbol()); //WTF
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} //Major Flaw of Implementation...
+//		try {
+//			tokenPipe.push(new EndSymbol()); //WTF
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} //END SYMBOLIS PROVIDED BY SCANNER!...
 		ExpressionParserInterface ep = new ExpressionParser();
 		Expression exp = ep.toExpression(tokenPipe);
 		//if(tokenPipe.getCount() > 1) throw new ParserException(TextConstants.somethingExtraBehind + tokenList.toString());

@@ -12,4 +12,6 @@ public interface Pipeline<T> {
  * Versucht, dem Puffer ein Element zu entnehmen (FIFO-Prinzip) und wartet auf leerem Puffer
  */
 	public T remove() throws InterruptedException;
+	
+	public T peek() throws InterruptedException;
 }

@@ -46,6 +46,23 @@ public class PipelineImplementierung<T> implements Pipeline<T> {
 		}
 	}
 	
+	public T peek() throws InterruptedException {
+		this.usedSpace.down();
+		try {
+			this.mutex.down();
+			T object = this.data.get(this.data.size()-1); // Für schönere Visualisierung
+			this.printData();
+			this.mutex.up();
+			this.usedSpace.up();
+			return object;
+		}catch(InterruptedException ie) {
+			this.usedSpace.up();
+			throw ie;
+		}
+	}
+	
+	
+	
 // ================== For testing ===================== 	
 	private void printData(){
 		System.out.println(this.indentForPrintout + this.data);

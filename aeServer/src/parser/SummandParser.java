@@ -18,7 +18,7 @@ class SummandParser{
 		Factor arg1 = new FactorParser().toExpression(symbolPipe);
 		SummandAlternativeDecider sad = new SummandAlternativeDecider(this, symbolPipe, arg1);
 		try {
-			symbolPipe.remove().accept(sad);
+			symbolPipe.peek().accept(sad);
 		} catch (InterruptedException e) {
 			System.out.println("Interrupted while SUMMANDING");
 		}
