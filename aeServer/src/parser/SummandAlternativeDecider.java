@@ -2,6 +2,7 @@ package parser;
 
 import java.util.List;
 
+import basic.Pipeline;
 import basic.TextConstants;
 import expressions.Factor;
 import expressions.Product;
@@ -17,14 +18,14 @@ import symbols.Token;
  */
 class SummandAlternativeDecider extends SymbolVisitorAdapterNothingAsDefault {
 	private SummandParser myParser;   // Reference used for auxiliary methods (e.g. skipSymbolList())
-	private List<Token> currentList; // The symbol stream
+	private Pipeline<Token> tokenPipe; // The symbol stream
 	private Summand result;           // The computed result
 /**	
  * @param arg1 = First argument of summand (must already be computed)
  */
-	public SummandAlternativeDecider(SummandParser myParser, List<Token> currentList, Factor arg1){
+	public SummandAlternativeDecider(SummandParser myParser, Pipeline<Token> currentList, Factor arg1){
 		this.myParser = myParser;
-		this.currentList = currentList;
+		this.tokenPipe = currentList;
 		this.result = arg1;			 
 	}
 	public Summand getResult() {
@@ -43,7 +44,11 @@ class SummandAlternativeDecider extends SymbolVisitorAdapterNothingAsDefault {
 	public void handle(EndSymbol es) throws ParserException {//Nothing: Parsing finishes
 	}
 	private void createTerm(OperatorSymbol op) throws ParserException{
-		this.currentList.remove(0);
-		this.result = new Product((Factor)this.result, new SummandParser().toExpression(this.currentList), op.getOperator());
+		try {
+			this.tokenPipe.remove();
+		} catch (InterruptedException e) {
+			System.out.println("Interrupted while building factors");
+		}
+		this.result = new Product((Factor)this.result, new SummandParser().toExpression(this.tokenPipe), op.getOperator());
 	}
 }

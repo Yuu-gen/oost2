@@ -1,6 +1,8 @@
 package parser;
 
 import java.util.List;
+
+import basic.Pipeline;
 import expressions.Factor;
 import facade.ParserException;
 import symbols.*;
@@ -11,9 +13,9 @@ class FactorParser{
 	public FactorParser() {
 		super();
 	}
-	public Factor toExpression(List<Token> symbolList) throws ParserException{
-		FactorAlternativeDecider fad = new FactorAlternativeDecider(this, symbolList);
-		symbolList.get(0).accept(fad);
+	public Factor toExpression(Pipeline<Token> symbolPipe) throws ParserException{
+		FactorAlternativeDecider fad = new FactorAlternativeDecider(this, symbolPipe);
+		symbolPipe.remove().accept(fad);
 		return fad.getResult();
 	}	
 }

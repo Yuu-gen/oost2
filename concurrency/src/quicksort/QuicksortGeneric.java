@@ -31,7 +31,7 @@ public class QuicksortGeneric<T extends Comparable<? super T>> {
 	 * @return
 	 */
 	private ArrayList<T> sort(ArrayList<T> list) {
-		if (isSorted(list))
+		if (isSorted(list)) //mit Überprüfung auf ein-elementige Liste ersetzen
 			return list;
 		else {
 			ArrayList<T> lower = new ArrayList<T>();

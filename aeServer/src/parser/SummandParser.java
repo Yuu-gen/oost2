@@ -2,6 +2,7 @@ package parser;
 
 import java.util.List;
 
+import basic.Pipeline;
 import expressions.Factor;
 import expressions.Summand;
 import facade.ParserException;
@@ -13,10 +14,14 @@ class SummandParser{
 	public SummandParser(){
 		super();
 	}
-	public Summand toExpression(List<Token> symbolList) throws ParserException{
-		Factor arg1 = new FactorParser().toExpression(symbolList);
-		SummandAlternativeDecider sad = new SummandAlternativeDecider(this, symbolList, arg1);
-		symbolList.get(0).accept(sad);
+	public Summand toExpression(Pipeline<Token> symbolPipe) throws ParserException{
+		Factor arg1 = new FactorParser().toExpression(symbolPipe);
+		SummandAlternativeDecider sad = new SummandAlternativeDecider(this, symbolPipe, arg1);
+		try {
+			symbolPipe.remove().accept(sad);
+		} catch (InterruptedException e) {
+			System.out.println("Interrupted while SUMMANDING");
+		}
 		return sad.getResult();
 	}	
 }

@@ -2,6 +2,7 @@ package parser;
 
 import java.util.List;
 
+import basic.Pipeline;
 import expressions.Expression;
 import expressions.Summand;
 import facade.ParserException;
@@ -13,10 +14,14 @@ class ExpressionParser implements ExpressionParserInterface{ // Paketsichtbarkei
 	public ExpressionParser(){
 		super();
 	}
-	public Expression toExpression(List<Token> tokenList) throws ParserException{
-		Summand s = new SummandParser().toExpression(tokenList);
-		ExpressionAlternativeDecider ead = new ExpressionAlternativeDecider(this, tokenList, s);
-		tokenList.get(0).accept(ead);
+	public Expression toExpression(Pipeline<Token> tokenPipe) throws ParserException{
+		Summand s = new SummandParser().toExpression(tokenPipe);
+		ExpressionAlternativeDecider ead = new ExpressionAlternativeDecider(this, tokenPipe, s);
+		try {
+			tokenPipe.remove().accept(ead);
+		} catch (InterruptedException e) {
+			System.out.println("Whatever.");
+		}
 		return ead.getResult();
 	}
 }

@@ -2,6 +2,7 @@ package parser;
 
 import java.util.List;
 
+import basic.Pipeline;
 import basic.TextConstants;
 import expressions.Expression;
 import expressions.Sum;
@@ -17,14 +18,14 @@ import symbols.Token;
  */
 class ExpressionAlternativeDecider extends SymbolVisitorAdapterNothingAsDefault {
 	private ExpressionParser myParser; // Reference used for auxiliary methods (e.g. skipSymbolList())
-	private List<Token> currentList;  // The symbol stream
+	private Pipeline<Token> currentPipe;  // The symbol stream
 	private Expression result;         // The computed result
 /**	
  * @param arg1 = First argument of expression (must already be computed)
  */	
-	public ExpressionAlternativeDecider(ExpressionParser myParser, List<Token> currentList, Summand arg1){
+	public ExpressionAlternativeDecider(ExpressionParser myParser, Pipeline<Token> currentPipe, Summand arg1){
 		this.myParser = myParser;
-		this.currentList = currentList;
+		this.currentPipe = currentPipe;
 		this.result = arg1;
 	}
 	public Expression getResult() {
@@ -46,7 +47,11 @@ class ExpressionAlternativeDecider extends SymbolVisitorAdapterNothingAsDefault 
 	public void handle(EndSymbol es) throws ParserException {// Nothing: Parsing finishes
 	}
 	private void createTerm(OperatorSymbol op) throws ParserException{
-		this.currentList.remove(0);
-		this.result = new Sum((Summand)this.result, new ExpressionParser().toExpression(this.currentList), op.getOperator());
+		try {
+			this.currentPipe.remove();
+		} catch (InterruptedException e) {
+			System.out.println("Don't disturb me while Factoring");
+		}
+		this.result = new Sum((Summand)this.result, new ExpressionParser().toExpression(this.currentPipe), op.getOperator());
 	}
 }

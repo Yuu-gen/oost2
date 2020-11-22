@@ -104,7 +104,7 @@ public class QuickSortGenericTests {
 	
 	@Test
 	public void testSortUnsortedVariableSizedIntegerList() {
-		ArrayList<Integer> list = randomIntList(500);
+		ArrayList<Integer> list = randomIntList(50);
 
 		QuicksortGeneric<Integer> q = new QuicksortGeneric<Integer>(list);
 		ArrayList<Integer> sortedList = q.sort();
@@ -114,7 +114,7 @@ public class QuickSortGenericTests {
 	
 	@Test
 	public void testSortUnsortedVariableSizedStringList() {
-		ArrayList<String> list = randomStringList(50000);
+		ArrayList<String> list = randomStringList(200000);
 		QuicksortGeneric<String> q = new QuicksortGeneric<String>(list);
 		ArrayList<String> sortedList = q.sort();
 		assertEquals((ArrayList<String>) (list.stream().sorted().collect(Collectors.toList())), sortedList);
@@ -122,7 +122,7 @@ public class QuickSortGenericTests {
 	}
 	@Test
 	public void SortSingleUnsortedVariableSizedStringList() {
-		ArrayList<String> list = randomStringList(50000);
+		ArrayList<String> list = randomStringList(200000);
 		QuicksortGenericSingleThread<String> q = new QuicksortGenericSingleThread<String>(list);
 		ArrayList<String> sortedList = q.sort();
 		assertEquals((ArrayList<String>) (list.stream().sorted().collect(Collectors.toList())), sortedList);
