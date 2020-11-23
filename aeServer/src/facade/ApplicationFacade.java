@@ -1,5 +1,6 @@
 package facade;
 
+import basic.Future;
 import basic.Pipeline;
 import basic.PipelineImplementierung;
 import expressions.Expression;
@@ -23,10 +24,15 @@ public class ApplicationFacade {
 	public Expression checkSyntax(String input) throws ParserException, InterruptedException {
 		Pipeline<Token> resultPipe = new PipelineImplementierung<>("tokens", 10, "    ");
 		ScannerThread s = new ScannerThread(resultPipe, input);
-		ParserThread p = new ParserThread(resultPipe);
 		s.start();
-		p.start();
-		return p.getResult();
+		//ParserThread p = new ParserThread(resultPipe);
+//		Future<Expression> result = new Future<Expression>();
+//		Expression expression = new ExpressionParserProxy().toExpression(resultPipe);
+//		result.setContents(expression);
+		//return result.receiveContents();
+		return new ExpressionParserProxy().toExpression(resultPipe);
+		//p.start();
+		//return p.getResult();
 		// return ep.toExpression(s.toTokenSequence(input)); //irgendwie Pipeline
 		// übergeben
 	}
