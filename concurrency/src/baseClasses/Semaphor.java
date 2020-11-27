@@ -16,4 +16,7 @@ public class Semaphor {
 		while(this.count==0) this.wait();
 		count--;
 	}
+	public synchronized Integer getCount() {
+		return count;
+	}
 }

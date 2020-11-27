@@ -1,0 +1,1 @@
+Achtung: Wenn die Anwendung getestet werden soll, ist darauf zu achten, dass zu Beginn jedes Testfalls die beteiligten Semaphoren wieder konsistent zum benutzten ObjectSpace sind. D.h. zu Beginn sollte der ObjectSpace leer und alle Semaphoren intinialisiert werden (TagDirectory.initialize()).
