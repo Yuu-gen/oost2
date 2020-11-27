@@ -1,7 +1,7 @@
 package activeServer.client;
 
 import activeServer.server.ActiveServer;
-import baseClasses.Command;
+import baseClasses.CommandINVOKER;
 import baseClasses.Invoker;
 
 public class Client extends Invoker {
@@ -23,7 +23,7 @@ public class Client extends Invoker {
 		}
 		System.out.println("Kommandoerzeugung beendet");
 	}
-	public void acceptResult(Command<?> c){
+	public void acceptResult(CommandINVOKER<?> c){
 		SQRTCommand sqrtCommand = (SQRTCommand)c;
 		try {
 			System.out.println(this.resultIntro(sqrtCommand) + ": "+ sqrtCommand.getResult());

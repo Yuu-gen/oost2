@@ -1,14 +1,14 @@
 package activeServer.server;
 
-import baseClasses.Command;
+import baseClasses.CommandINVOKER;
 import baseClasses.Pipeline;
 import baseClasses.PipelineImplementierung;
 import baseClasses.RunnableAdapter;
 
 public class ActiveServer extends RunnableAdapter {
-	private Pipeline<Command<?>> myPipe;
+	private Pipeline<CommandINVOKER<?>> myPipe;
 	public ActiveServer(){
-		this.myPipe = new PipelineImplementierung<Command<?>>("Server-Pipe", 4, "   ");
+		this.myPipe = new PipelineImplementierung<CommandINVOKER<?>>("Server-Pipe", 4, "   ");
 	}
 	public void run() {
 		try {
@@ -19,7 +19,7 @@ public class ActiveServer extends RunnableAdapter {
 		System.out.println("Server Stop");
 	}
 	
-	public Pipeline<Command<?>> getPipeline(){
+	public Pipeline<CommandINVOKER<?>> getPipeline(){
 		return this.myPipe;
 	}
 }

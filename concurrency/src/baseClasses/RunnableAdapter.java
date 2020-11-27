@@ -38,4 +38,5 @@ public abstract class RunnableAdapter implements Runnable {
 	public int getPriority(){
 		return this.whereIRunIn.getPriority();
 	}
+	
 }

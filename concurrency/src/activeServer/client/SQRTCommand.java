@@ -1,9 +1,9 @@
 package activeServer.client;
 
 import baseClasses.Invoker;
-import baseClasses.Command;
+import baseClasses.CommandINVOKER;
 
-public class SQRTCommand extends Command<Double>{
+public class SQRTCommand extends CommandINVOKER<Double>{
 	private Integer argument; 
 	public SQRTCommand(Invoker invoker, Integer argument){
 		super(invoker);

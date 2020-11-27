@@ -1,5 +1,6 @@
 package nfaWordChecking.testing;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.HashSet;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import nfaWordChecking.nfaModel.AutomatonState;
 import nfaWordChecking.nfaModel.NFA;
 import nfaWordChecking.nfaModel.Transition;
+import nfaWordChecking.objectSpaces.TagDirectory;
 
 class NFATest {
 	
@@ -112,5 +114,24 @@ class NFATest {
 		assertEquals(expected, nfa.getTargetStates(z2, '1'));
 	}
 	
-	
+	@Test
+	void testCheck1() {
+		try {
+			TagDirectory.initialize();
+			assertTrue( nfa.check("000"));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	@Test
+	void testCheck2() {
+		try {
+			TagDirectory.initialize();
+			assertFalse( nfa.check("000111"));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
