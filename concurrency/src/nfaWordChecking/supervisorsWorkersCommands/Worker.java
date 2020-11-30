@@ -1,5 +1,6 @@
 package nfaWordChecking.supervisorsWorkersCommands;
 
+import baseClasses.Command;
 import baseClasses.RunnableAdapter;
 import nfaWordChecking.objectSpaces.ObjectSpace;
 import nfaWordChecking.objectSpaces.TagDirectory;
@@ -15,9 +16,9 @@ public class Worker extends RunnableAdapter {
 	public void run() {
 		try {
 			while(!this.isInterrupted()) {
-				CheckCommand currentCommand = (CheckCommand)this.objectSpace.remove(TagDirectory.tagForTasks);
-				currentCommand.execute();
-				this.objectSpace.put(TagDirectory.tagForResults, currentCommand);
+				Command currentCommand = this.objectSpace.remove(TagDirectory.tagForTasks); //entnehmen
+				currentCommand.execute(); //bearbeiten
+				this.objectSpace.put(TagDirectory.tagForResults, currentCommand); //zurücklegen
 			}
 		}catch(InterruptedException ie) {
 			this.interrupt();

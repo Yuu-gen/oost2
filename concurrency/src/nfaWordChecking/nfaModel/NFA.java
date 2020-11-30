@@ -43,16 +43,15 @@ public class NFA {
 				targetStates.add(t.getTarget());
 			}
 		}
-
 		return targetStates;
 	}
 
 	/**
-	 * Checks if Word is in the automatons language
+	 * Checks if word is in the automatons language
 	 * 
 	 * @param word
 	 * @return
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
 	 */
 	public boolean check(String word) throws InterruptedException {
 		Supervisor commandant = new Supervisor(this, word, new ObjectSpace());

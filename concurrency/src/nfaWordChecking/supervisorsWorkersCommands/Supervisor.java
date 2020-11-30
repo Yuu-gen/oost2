@@ -51,6 +51,7 @@ public class Supervisor extends RunnableAdapter {
 			this.finalresult.setContents(result);
 		} catch (InterruptedException ie) {
 			System.out.println("Supervisor was interrupted doing important calculations.");
+			this.interruptWorkers();
 		}
 
 	}
